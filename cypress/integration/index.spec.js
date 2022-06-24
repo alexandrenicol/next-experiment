@@ -6,6 +6,12 @@ describe('Navigation', () => {
       cy.visit('http://localhost:3000/')
 
       // The new page should contain an h1 with "About page"
-      cy.get('h1').contains('Welcome to')
+      cy.get('h1').contains('Webnicol.fr')
+
+      cy.contains('about page').click()
+
+      cy.url().should('include', '/about')
+
+      cy.get('p').contains('Alex')
     })
   })
