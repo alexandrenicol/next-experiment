@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 
 interface Props {
@@ -51,18 +51,18 @@ const Category = (props: Props) => {
   );
 };
 
-export async function getStaticPaths() {
-  const paths = [];
-  for (const category of categories) {
-    for (const post of category.posts) {
-      paths.push({ params: { id: category.id, postid: post.postid } });
-    }
-  }
+// export async function getStaticPaths() {
+//   const paths = [];
+//   for (const category of categories) {
+//     for (const post of category.posts) {
+//       paths.push({ params: { id: category.id, postid: post.postid } });
+//     }
+//   }
 
-  return { paths, fallback: false };
-}
+//   return { paths, fallback: false };
+// }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const category = categories.find(
     (category) => category.id === (params!.id as string)
   );
