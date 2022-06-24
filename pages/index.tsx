@@ -19,6 +19,9 @@ const Home = (props: { company: string }) => {
         <Link href="/about">
           <a>about page</a>
         </Link>
+        <Link href="/categories">
+          <a>categories page</a>
+        </Link>
       </main>
     </div>
   );
